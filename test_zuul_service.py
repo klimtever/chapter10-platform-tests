@@ -16,7 +16,7 @@ class TestZuulService(unittest.TestCase):
                 'Authorization': 'Bearer {}'.format(oauthtoken)}
 
     def call_zuul_service(self):
-         targetUri = "http://{}:5555/routes".format(containerIP)
+         targetUri = "http://{}:5555/actuator/routes".format(containerIP)
          http_obj = Http(".cache")
          (resp, content) = http_obj.request(
          uri=targetUri,
