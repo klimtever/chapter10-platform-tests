@@ -9,6 +9,7 @@ from httplib2 import Http
 class TestEurekaServer(unittest.TestCase):
 
     def call_eureka_service(self,serviceName):
+        # Open 8761 port from ECS security group
          targetUri = "http://{}:8761/eureka/apps/{}".format(containerIP,serviceName)
          http_obj = Http(".cache")
          (resp, content) = http_obj.request(
